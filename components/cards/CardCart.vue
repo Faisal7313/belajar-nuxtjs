@@ -11,7 +11,7 @@ const props = defineProps({
   <div class="bg-white shadow-xl p-6 rounded-xl flex gap-4 items-center">
     <div class="h-[150px] w-[130px] bg-gray-300 rounded-xl p-3">
       <img
-        src="/images/products/baju-1.png"
+        :src="props.product.image"
         class="h-full w-full object-contain"
         alt=""
       />
@@ -39,6 +39,7 @@ const props = defineProps({
         </div>
         <div
           class="flex items-center gap-2 border border-gray-300 px-3 py-2 rounded-full cursor-pointer"
+          @click="$emit('removeCart', props.product.id)"
         >
           <i class="ri-delete-bin-7-fill text-sm text-gray-600"></i>
           <span class="text-sm text-gray-500">Delete</span>

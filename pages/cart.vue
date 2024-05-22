@@ -17,6 +17,11 @@ onMounted(() => {
     products.value = JSON.parse(localStorageData);
   }
 });
+
+const removeCart = (id: number) => {
+  products.value = products.value.filter((item) => item.id !== id);
+  localStorage.setItem("products", JSON.stringify(products.value));
+};
 </script>
 
 <template>
@@ -32,7 +37,7 @@ onMounted(() => {
           </div>
           <div v-if="products.length > 0" class="flex flex-col gap-6">
             <template v-for="(item, index) in products" :key="index">
-              <CardsCardCart :products="item" />
+              <CardsCardCart :product="item" @removeCart="removeCart" />
             </template>
           </div>
           <div v-else>
