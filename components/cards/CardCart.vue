@@ -1,6 +1,15 @@
+<script lang="ts" setup>
+const props = defineProps({
+  product: {
+    type: Object,
+    default: {},
+  },
+});
+</script>
+
 <template>
   <div class="bg-white shadow-xl p-6 rounded-xl flex gap-4 items-center">
-    <div class="h-[150px] w-[130px] rounded-xl p-3">
+    <div class="h-[150px] w-[130px] bg-gray-300 rounded-xl p-3">
       <img
         src="/images/products/baju-1.png"
         class="h-full w-full object-contain"
@@ -8,8 +17,8 @@
       />
     </div>
     <div class="w-full">
-      <h5 class="text-xl font-semibold mb-2">Men's Streetwear Fashion</h5>
-      <p class="text-lg font-light mb-3">$30</p>
+      <h5 class="text-xl font-semibold mb-2">{{ props.product.name }}</h5>
+      <p class="text-lg font-light mb-3">{{ props.product.price }}</p>
       <div class="flex items-center justify-between">
         <div
           class="flex items-center border border-gray-300 w-max rounded-full"
